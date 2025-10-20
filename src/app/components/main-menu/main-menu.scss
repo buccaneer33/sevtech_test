@@ -1,0 +1,40 @@
+.title {
+  padding: 11px 7px 11px 11px;
+}
+.main-menu {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+
+  &__item {
+    float: left;
+    padding: 10px 0px 10px 0px;
+
+    &-link {
+      display: block;
+      text-align: center;
+      padding: 2px 7px 2px 7px;
+      position: relative;
+      text-decoration: none;
+      color: white;
+
+      &::first-letter {
+        text-transform: capitalize;
+      }
+    }
+
+    &-link:after {
+      content:"";
+      background: white;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 100%;
+      width: 1.5px;
+    }
+    &:first-child a::after {
+      display: none;
+    }
+  }
+}

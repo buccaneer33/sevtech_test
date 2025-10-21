@@ -2,7 +2,7 @@
   <p class="title">{{ title() }}</p>
   <ul class class="main-menu d-flex flex-row">
     @for (item of menuPoints; track $index) {
-      <li class="main-menu__item" ><a class="main-menu__item-link" [routerLink]="[item]">{{ item }}</a></li>
+      <li class="main-menu__item" ><a class="main-menu__item-link" [routerLink]="[item.path]">{{ item.title }}</a></li>
     }
   </ul>
 </div>

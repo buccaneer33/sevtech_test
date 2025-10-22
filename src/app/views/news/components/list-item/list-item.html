@@ -1,0 +1,16 @@
+@if(newsItem(); as item){
+  <div>
+    <div>
+      <a [routerLink]="['item', item.story_id ]">{{ item.title }}</a>
+      @if(item.url){
+        <a href="{{ item.url }}">{{ item.url }}</a>
+      }
+    </div>
+    <div>
+      <small>{{ `${item.points} points | ${item.author} | ${item.children.length} comments` }} </small>
+    </div>
+
+  </div>
+  <nz-divider [nzSize]="'small'" />
+}
+

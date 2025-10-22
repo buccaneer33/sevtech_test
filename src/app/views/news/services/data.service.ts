@@ -44,7 +44,10 @@ export class DataService {
         takeUntilDestroyed(this.destroyRef)
       )
       .subscribe({
-          next: data => console.log(data),//this._newsData.next(data),
+          next: data => {
+            console.log(data);
+            this._newsData.next(<News[]>data);
+          },
           error: error => console.error(error),
         }
       )

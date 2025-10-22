@@ -1,21 +1,23 @@
-import { Component, DestroyRef, inject } from '@angular/core';
+import { Component, DestroyRef, inject, Signal } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { takeUntilDestroyed, toSignal } from '@angular/core/rxjs-interop';
-import { DataService } from '../services/data.service';
+import { DataService } from '../../services/data.service';
+import { News } from '../../interface/news';
+import { ListItemComponent } from '../list-item/list-item';
 
 @Component({
   selector: 'app-news',
-  imports: [],
-  templateUrl: './news.html',
-  styleUrl: './news.scss'
+  imports: [ListItemComponent],
+  templateUrl: './news-list.html',
+  styleUrl: './news-list.scss'
 })
 export class NewsComponent {
   private router = inject(Router);
   private destroyRef = inject(DestroyRef);
   private dataService = inject(DataService);
 
-  newsList = toSignal(this.dataService.newsData$);
+  newsList: Signal <News[] | undefined> = toSignal(this.dataService.newsData$);
 
   constructor(){
     this.routerListener();
